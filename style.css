@@ -1,0 +1,105 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  display: grid;
+  grid-gap: 10px;
+  padding: 30px;
+  padding-top: 10px;
+  margin: 0;
+}
+
+li {
+  display: grid;
+  grid-template-rows: auto 1fr 1fr 1fr;
+  text-align: center;
+  text-decoration: none;
+  list-style: none;
+}
+
+#wrapper {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+}
+
+#library {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 200px));
+  grid-column: 2/-2;
+  grid-gap: 10px;
+}
+
+#addBook {
+  font-size: 50px;
+  grid-column: 1;
+  max-width: 80px;
+  max-height: 80px;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: #000;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.pop-content {
+  background: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  place-items: center;
+}
+
+.book-form {
+  grid-column: 2/-2;
+  min-width: 500px;
+  display: grid;
+  gap: 10px;
+}
+
+.pop-entry {
+  display: grid;
+  grid-template-columns: minmax(50px, 70px) minmax(100px, 200px);
+  place-content: center;
+}
+
+.close {
+  display: grid;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  grid-column: 3;
+  place-self: end;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.book {
+  border: 1px solid black;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.button-delete {
+  display: grid;
+  grid-template-columns: 1fr;
+  place-self: end;
+  padding: 5px;
+}
