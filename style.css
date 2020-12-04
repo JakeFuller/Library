@@ -1,6 +1,8 @@
 html {
   margin: 0;
   padding: 0;
+  font-family: "Roboto", sans-serif;
+  background: rgb(39, 39, 46);
 }
 
 ul {
@@ -19,6 +21,13 @@ li {
   list-style: none;
 }
 
+button {
+  color: rgb(255, 255, 255);
+  background: #4e4e4e;
+  border: none;
+  text-align: center;
+}
+
 #wrapper {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
@@ -32,10 +41,14 @@ li {
 }
 
 #addBook {
+  display: inline-block;
   font-size: 50px;
   grid-column: 1;
-  max-width: 80px;
-  max-height: 80px;
+  width: 80px;
+  height: 80px;
+  padding: 0;
+  place-content: center;
+  justify-self: center;
 }
 
 .popup {
@@ -48,15 +61,15 @@ li {
   height: 100%;
   overflow: auto;
   background: #000;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.8);
 }
 
 .pop-content {
-  background: #fefefe;
+  background: #272727;
   margin: 15% auto;
-  padding: 20px;
+  padding-right: 25px;
   border: 1px solid #888;
-  width: 80%;
+  width: 30%;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   place-items: center;
@@ -68,11 +81,18 @@ li {
   display: grid;
   gap: 10px;
 }
-
 .pop-entry {
+  color: whitesmoke;
   display: grid;
-  grid-template-columns: minmax(50px, 70px) minmax(100px, 200px);
+  grid-template-columns: minmax(50px, 200px) minmax(100px, 200px);
   place-content: center;
+}
+
+.pop-entry input,
+select {
+  border: none;
+  color: whitesmoke;
+  background: rgb(56, 56, 56);
 }
 
 .close {
@@ -95,11 +115,35 @@ li {
   border: 1px solid black;
   display: grid;
   grid-template-rows: auto 1fr;
+  background: rgb(61, 61, 68);
+  color: rgb(135, 151, 179);
+}
+
+.bookInfo {
+  border-bottom: 1px solid black;
 }
 
 .button-delete {
+  font-size: 20px;
   display: grid;
   grid-template-columns: 1fr;
   place-self: end;
   padding: 5px;
+  background: none;
+  border: none;
+  color: gray;
+}
+
+.button-toggle {
+  display: grid;
+  border: none;
+  grid-template-columns: 1fr;
+  place-self: stretch;
+  font-size: 30px;
+  color: rgb(48, 48, 48);
+  background: rgb(75, 76, 82);
+}
+
+.toggle-read {
+  color: green;
 }
