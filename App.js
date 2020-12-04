@@ -49,35 +49,40 @@ function renderLibrary() {
     newDiv.classList = `book`;
     newDiv.id = i;
     bookTable = document.createElement("ul");
+    bookTable.classList = "bookInfo";
     bookProperties = Object.entries(myLibrary[i]);
+
+    deleteBtn = document.createElement("button");
+    deleteBtn.classList = "button-delete";
+    deleteBtn.innerHTML = "<i class='far fa-trash-alt'></i>";
+    deleteBtn.onclick = function (e) {
+      removeBookFromLibrary(e);
+    };
+
+    toggleBtn = document.createElement("button");
+    toggleBtn.classList = "button-toggle";
+    toggleBtn.innerHTML = "&#10004;";
+    toggleBtn.onclick = function (e) {
+      toggleRead(e);
+    };
+
     for (const [property, value] of bookProperties) {
       listProperty = document.createElement("li");
       listProperty.classList = `${property}`;
       if (typeof value === "boolean") {
         if (value === true) {
-          listProperty.innerHTML = `<span class="long-word">Read<span>`;
+          listProperty.innerHTML = `<span class="">Read<span>`;
+          toggleBtn.classList.add("toggle-read");
         } else {
-          listProperty.innerHTML = `<span class="long-word">Unread<span>`;
+          listProperty.innerHTML = `<span class="">Unread<span>`;
         }
       } else if (!isNaN(value)) {
-        listProperty.innerHTML = `<span class="long-word">${value} pages<span>`;
+        listProperty.innerHTML = `<span class="">${value} pages<span>`;
       } else {
-        listProperty.innerHTML = `<span class="long-word">${value}<span>`;
+        listProperty.innerHTML = `<span class="">${value}<span>`;
       }
       bookTable.appendChild(listProperty);
     }
-    deleteBtn = document.createElement("button");
-    deleteBtn.classList = "button-delete";
-    deleteBtn.innerHTML = "&times;";
-    deleteBtn.onclick = function (e) {
-      removeBookFromLibrary(e);
-    };
-    toggleBtn = document.createElement("button");
-    toggleBtn.classList = "button-toggle";
-    toggleBtn.innerHTML = "&#9745;";
-    toggleBtn.onclick = function (e) {
-      toggleRead(e);
-    };
     newDiv.appendChild(deleteBtn);
     newDiv.appendChild(bookTable);
     newDiv.appendChild(toggleBtn);
